@@ -3,7 +3,7 @@ version: '3.3'
 services:
   postgres_drs:
     container_name: postgres_drs
-    image: postgres:13
+    image: postgres:12
     ports:
       - $POSTGRES_PORT:5432
     volumes:
