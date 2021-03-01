@@ -3,3 +3,4 @@ postgres_data/*
 !postgres_data/.gitkeep
 .env
 .DS_Store
+task.txt

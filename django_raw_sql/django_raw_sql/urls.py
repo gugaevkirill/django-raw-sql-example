@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django_raw_sql.orders.views import test_view
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('test_view/', test_view),
 ]
