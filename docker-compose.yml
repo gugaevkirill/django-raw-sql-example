@@ -1,0 +1,31 @@
+version: '3.3'
+
+services:
+  postgres_drs:
+    container_name: postgres_drs
+    image: postgres:13
+    ports:
+      - $POSTGRES_PORT:5432
+    volumes:
+      - ./postgres_data:/opt/postgres
+    environment:
+      - PGDATA=/opt/postgres/data
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    networks:
+      - django_raw_sql_network
+  django_raw_sql:
+    container_name: django_raw_sql
+    build:
+      context: ./django_raw_sql
+    ports:
+      - $DJANGO_PORT:80
+    volumes:
+      - ./django_raw_sql:/var/www/project/
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+    networks:
+      - django_raw_sql_network
+networks:
+  django_raw_sql_network:
