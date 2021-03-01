@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .order {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Orders:</h1>
+
+    {% for order in orders %}
+    <div class="order">
+        <h3>Order №{{ order.order_number }} {{ order.order_id }}</h3>
+        <p>
+            Customer: <strong>{{ order.customer.first_name }} {{ order.customer.last_name }}</strong>
+        </p>
+        <p>
+            Email: <strong>{{ order.customer.email.email_address }}</strong>
+        </p>
+    </div>
+    {% endfor %}
+</body>
+</html>
