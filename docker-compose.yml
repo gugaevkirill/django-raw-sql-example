@@ -12,6 +12,7 @@ services:
       - PGDATA=/opt/postgres/data
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_HOST_AUTH_METHOD=trust
+    command: ["postgres", "-c", "log_statement=all"]
     networks:
       - django_raw_sql_network
   django_raw_sql:
